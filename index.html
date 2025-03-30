@@ -21,30 +21,36 @@
             box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
             color: black;
         }
-        input, select, button {
+        input, select {
             width: 100%;
             padding: 10px;
             margin: 10px 0;
             border-radius: 5px;
             border: 1px solid #ccc;
+            box-sizing: border-box;
         }
         button {
+            width: 50%;
+            padding: 6px;
+            margin: 10px 5px;
             background-color: #007BFF;
             color: white;
             border: none;
             cursor: pointer;
-            transition: 0.3s;
+            transition: background-color 0.3s, transform 0.2s;
             font-weight: bold;
+            font-size: 0.8em;
+            border-radius: 5px;
         }
         button:hover {
-            background-color: #0056b3;
+            background-color: #ff5733;
+            transform: scale(1.05);
         }
         .swap-btn {
             background-color: #28a745;
-            margin-top: 5px;
         }
         .swap-btn:hover {
-            background-color: #218838;
+            background-color: #ff5733;
         }
         #result {
             font-size: 1.4em;
@@ -56,7 +62,7 @@
 <body>
     <div class="container">
         <h1>💱 Currency Converter</h1>
-        <input type="number" id="amount" placeholder="Enter amount" min="1">
+        <input type="number" id="amount" placeholder="Enter amount" min="1" style="width: 100%;">
         <select id="fromCurrency">
             <option value="USD">🇺🇸 USD</option>
             <option value="EUR">🇪🇺 EUR</option>
@@ -64,7 +70,7 @@
             <option value="GBP">🇬🇧 GBP</option>
             <option value="JPY">🇯🇵 JPY</option>
         </select>
-        <button class="swap-btn" onclick="swapCurrencies()">🔄 Swap</button>
+       <button class="swap-btn" onclick="swapCurrencies()">🔄 Swap</button>
         <select id="toCurrency">
             <option value="INR">🇮🇳 INR</option>
             <option value="USD">🇺🇸 USD</option>
@@ -72,7 +78,9 @@
             <option value="GBP">🇬🇧 GBP</option>
             <option value="JPY">🇯🇵 JPY</option>
         </select>
-        <button onclick="convertCurrency()">Convert</button>
+        <div>
+            <button onclick="convertCurrency()">Convert</button>
+        </div>
         <p id="result"></p>
     </div>
 
